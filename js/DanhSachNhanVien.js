@@ -28,4 +28,19 @@ function DanhSachNhanVien() {
             
         }
     }
+
+}
+DanhSachNhanVien.prototype.searchName = function (keyword) {
+    var mangKQ = [];
+    var keywordLowerCase = keyword.toLowerCase();
+    keywordLowerCase = keywordLowerCase.replace(/\s/g, "");
+
+    console.log(keywordLowerCase);
+    this.mangNV.map(function (nv) {
+        var nameLowerCase = nv.hoTen.toLowerCase().replace(/\s/g, "");
+        if (nameLowerCase.indexOf(keywordLowerCase) > -1) {
+            mangKQ.push(nv);
+        }
+    });
+    return mangKQ;
 }
